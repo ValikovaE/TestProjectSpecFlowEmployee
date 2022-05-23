@@ -17,7 +17,7 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
         private By infoButton = By.CssSelector(" div.bottom-info");
 
-        private By allProjectButton = By.Id("employeeProfileShowAllProjectsButton");
+        private By downloadEmployeeInfoButton = By.Id("employeeProfiledownload");
 
         private By filterButton = By.CssSelector("i.fa-filter");
 
@@ -33,22 +33,22 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
             return this;
         }
 
-        public void CheckShowAllProjectsButtonText(string expectedResult)
+        /*public void CheckShowAllProjectsButtonText(string expectedResult)
         {
 
             string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(allProjectButton)).Text;
             Assert.AreEqual(expectedResult, actualResult);
-        }
+        }*/
         public EmployeeListPage OpenEmployeeInfoByFilter()
         {
 
             WaitAndClick(filterButton);
             return this;
         }
-        public void CheckFilterButtonText(string expectedResult)
+        public void CheckDownloadEmployeeInfo(string expectedResult)
         {
 
-            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(allDeliverySitesButton)).Text;
+            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(downloadEmployeeInfoButton)).Text;
             Assert.AreEqual(expectedResult, actualResult);
         }
     }

@@ -103,8 +103,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User is searching for employee", ((string)(null)), table1, "When ");
 #line hidden
 #line 10
- testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
-                        "d .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Employee is found and user can see his profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

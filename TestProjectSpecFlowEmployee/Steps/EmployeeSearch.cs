@@ -40,10 +40,10 @@ namespace TestProjectSpecFlowEmployee.Steps
 
         }
 
-        [Then(@"Employee is found and user can see all projects in which this employee is involved ")]
+        [Then(@"Employee is found and user can see his profile")]
         public void ThenEmployeeIsFound()
         {
-            employeePage.CheckShowAllProjectsButtonText("Show all Projects");
+            employeePage.CheckDownloadEmployeeInfo("Profile");
         }
         
     }
