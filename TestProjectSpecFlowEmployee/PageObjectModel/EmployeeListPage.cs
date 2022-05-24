@@ -20,7 +20,6 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
         private By filterButton = By.CssSelector("i.fa-filter");
 
-        private By wordFileCheckbox = By.XPath("//div//mat-dialog-container//span[contains(., 'Word')]");
         private By downloadButton = By.XPath("//button//span[contains(., 'Download')]");
 
         private By noSuchEmployee = By.XPath("//div[contains(@class, 'not-found ng-star-inserted')]");
@@ -54,16 +53,6 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
             string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(noSuchEmployee)).Text;
             Assert.AreEqual(expectedResult, actualResult);
         }
-        public EmployeeListPage OpenEmployeeInfoDownload()
-        {
-            
-            WaitAndClick(downloadEmployeeInfoButton);
-            return this;
-        }
-        public void CheckDownloadEmployeeText(string expectedResult)
-        {
-            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(downloadButton)).Text;
-            Assert.AreEqual(expectedResult, actualResult);
-        }
+        
     }
 }

@@ -16,6 +16,7 @@ namespace TestProjectSpecFlowEmployee.Steps
     {
         LogInPage loginPage;
         EmployeeListPage employeePage;
+        EmployeeDetailsPage employeeDetailsPage;
         
 
         [Given(@"Administrator is on employees page")]
@@ -57,14 +58,30 @@ namespace TestProjectSpecFlowEmployee.Steps
         [When(@"Employee details is opened")]
         public void WhenEmployeeDetailsIsOpened()
         {
-            employeePage.OpenEmployeeInfoDownload();
+            employeeDetailsPage = new EmployeeDetailsPage();
+            employeeDetailsPage.OpenEmployeeInfoDownload();
         }
 
         [Then(@"User can download employee info")]
         public void ThenUserCanDownloadEmployeeInfo()
         {
-            employeePage.CheckDownloadEmployeeText("Download");
+            employeeDetailsPage.CheckDownloadEmployeeText("Download");
         }
+        [When(@"User open projects tab")]
+        public void WhenUserOpenProjectsTab()
+        {
+            employeeDetailsPage.OpenEmployeeProjects();
+        }
+
+
+        [Then(@"User can see all completed work orders")]
+        public void ThenUserCanSeeAllCompletedWorkOrders()
+        {
+            employeeDetailsPage.CheckEmployeeProjects("Hide all Projects");
+        }
+        
+
+
 
 
 
