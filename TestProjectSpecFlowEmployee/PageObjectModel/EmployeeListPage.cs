@@ -12,7 +12,6 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
     public class EmployeeListPage : NavigationBar
     {
 
-
         private By employeesField = By.XPath(" //input[@type='text']");
 
         private By infoButton = By.CssSelector(" div.bottom-info");
@@ -21,10 +20,10 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
         private By filterButton = By.CssSelector("i.fa-filter");
 
-        private By allDeliverySitesButton = By.Id("mat-select-0");
+        private By wordFileCheckbox = By.XPath("//div//mat-dialog-container//span[contains(., 'Word')]");
+        private By downloadButton = By.XPath("//button//span[contains(., 'Download')]");
 
-
-
+        private By noSuchEmployee = By.XPath("//div[contains(@class, 'not-found ng-star-inserted')]");
 
         public EmployeeListPage OpenEmployeeInfoByName(string name)
         {
@@ -41,14 +40,29 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
         }*/
         public EmployeeListPage OpenEmployeeInfoByFilter()
         {
-
             WaitAndClick(filterButton);
             return this;
         }
-        public void CheckDownloadEmployeeInfo(string expectedResult)
+        public void CheckEmployeeInfo(string expectedResult)
         {
 
             string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(downloadEmployeeInfoButton)).Text;
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        public void CheckNoSuchEmployeeText(string expectedResult)
+        {
+            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(noSuchEmployee)).Text;
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        public EmployeeListPage OpenEmployeeInfoDownload()
+        {
+            
+            WaitAndClick(downloadEmployeeInfoButton);
+            return this;
+        }
+        public void CheckDownloadEmployeeText(string expectedResult)
+        {
+            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(downloadButton)).Text;
             Assert.AreEqual(expectedResult, actualResult);
         }
     }

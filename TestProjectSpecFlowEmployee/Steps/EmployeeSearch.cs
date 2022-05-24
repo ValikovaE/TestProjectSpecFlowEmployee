@@ -12,10 +12,11 @@ using TechTalk.SpecFlow.Assist;
 namespace TestProjectSpecFlowEmployee.Steps
 {
     [Binding]
-    class EmployeeSearch:Base
+    class EmployeeSearch : Base
     {
         LogInPage loginPage;
         EmployeeListPage employeePage;
+        
 
         [Given(@"Administrator is on employees page")]
         public void GivenAdministratorIsLoggedIn()
@@ -26,7 +27,7 @@ namespace TestProjectSpecFlowEmployee.Steps
                 .SetPasswordAndSubmit("10704-observe-MODERN-products-STRAIGHT-69112")
                 .ClickSubmitButton()
                 .GoToEmployeesFromMenu();
-               
+
         }
 
         [When(@"User is searching for employee")]
@@ -37,14 +38,41 @@ namespace TestProjectSpecFlowEmployee.Steps
             dynamic data = table.CreateDynamicInstance();
             employeePage.OpenEmployeeInfoByName((string)data.employeename);
 
+             
 
         }
 
         [Then(@"Employee is found and user can see his profile")]
         public void ThenEmployeeIsFound()
         {
-            employeePage.CheckDownloadEmployeeInfo("Profile");
+            employeePage.CheckEmployeeInfo("Profile");
         }
-        
+
+        [Then(@"Employee is not found")]
+        public void ThenEmployeeIsNotFound()
+        {
+            employeePage.CheckNoSuchEmployeeText("No such employees");
+        }
+
+        [When(@"Employee details is opened")]
+        public void WhenEmployeeDetailsIsOpened()
+        {
+            employeePage.OpenEmployeeInfoDownload();
+        }
+
+        [Then(@"User can download employee info")]
+        public void ThenUserCanDownloadEmployeeInfo()
+        {
+            employeePage.CheckDownloadEmployeeText("Download");
+        }
+
+
+
+
+
+
+
+
+
     }
 }

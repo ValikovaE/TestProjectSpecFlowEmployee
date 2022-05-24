@@ -16,7 +16,6 @@ namespace TestProjectSpecFlowEmployee.Settings
         [BeforeFeature]
         public static void Setup()
         {
-
             Driver.StartBrowser();
         }
         [AfterFeature]

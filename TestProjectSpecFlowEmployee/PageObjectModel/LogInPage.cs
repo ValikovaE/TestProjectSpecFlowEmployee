@@ -12,8 +12,6 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
     public class LogInPage : BasePage
     {
 
-
-
         private By logInButton = By.CssSelector("div.button>span");
         private By emailField = By.XPath(" //input[@type='email']");
 
