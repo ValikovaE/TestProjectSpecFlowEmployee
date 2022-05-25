@@ -74,14 +74,14 @@ namespace TestProjectSpecFlowEmployee.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Download Employee Info")]
-        [NUnit.Framework.CategoryAttribute("downloadinfo")]
-        public void DownloadEmployeeInfo()
+        [NUnit.Framework.DescriptionAttribute("Download profile of employee")]
+        [NUnit.Framework.CategoryAttribute("downloadProfileOfEmployee")]
+        public void DownloadProfileOfEmployee()
         {
             string[] tagsOfScenario = new string[] {
-                    "downloadinfo"};
+                    "downloadProfileOfEmployee"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Download Employee Info", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Download profile of employee", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -93,20 +93,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "employeename"});
                 table1.AddRow(new string[] {
-                            "Valicova Evghenia"});
+                            "Evghenia Valicova"});
 #line 7
- testRunner.When("User is searching for employee", ((string)(null)), table1, "When ");
+testRunner.When("User is searching for employee", ((string)(null)), table1, "When ");
 #line hidden
 #line 10
- testRunner.And("Employee details is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
+                        "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.Then("User can download employee info", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("User clicks on Profile icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+testRunner.Then("Download Employee Profile Popup is present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 13
+testRunner.When("User ticks PDF file checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+testRunner.And("User ticks Word file checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+testRunner.And("User clicks Download button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+testRunner.Then("Download Employee Profile Popup is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

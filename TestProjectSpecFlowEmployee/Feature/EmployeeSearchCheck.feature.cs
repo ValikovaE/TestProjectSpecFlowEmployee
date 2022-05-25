@@ -74,15 +74,15 @@ namespace TestProjectSpecFlowEmployee.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search an employee by name and firstname")]
+        [NUnit.Framework.DescriptionAttribute("Search an employee by name")]
         [NUnit.Framework.CategoryAttribute("employeeSearchByName")]
-        public void SearchAnEmployeeByNameAndFirstname()
+        public void SearchAnEmployeeByName()
         {
             string[] tagsOfScenario = new string[] {
                     "employeeSearchByName"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by name and firstname", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -92,33 +92,117 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
- testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "employeename"});
+                table3.AddRow(new string[] {
+                            "Evghenia"});
+#line 9
+testRunner.When("User is searching for employee", ((string)(null)), table3, "When ");
+#line hidden
+#line 12
+testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
+                        "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Search an employee by family")]
+        [NUnit.Framework.CategoryAttribute("employeeSearchByFamilly")]
+        public void SearchAnEmployeeByFamily()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "employeeSearchByFamilly"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by family", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 19
+testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "employeename"});
+                table4.AddRow(new string[] {
+                            "Valicova"});
+#line 20
+testRunner.When("User is searching for employee", ((string)(null)), table4, "When ");
+#line hidden
+#line 23
+testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
+                        "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Search an employee by full name")]
+        [NUnit.Framework.CategoryAttribute("employeeSearchByFullname")]
+        public void SearchAnEmployeeByFullName()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "employeeSearchByFullname"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by full name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 30
+testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "employeename"});
                 table5.AddRow(new string[] {
-                            "Valicova Evghenia"});
-#line 7
- testRunner.When("User is searching for employee", ((string)(null)), table5, "When ");
+                            "Evghenia Valicova"});
+#line 31
+testRunner.When("User is searching for employee", ((string)(null)), table5, "When ");
 #line hidden
-#line 10
- testRunner.Then("Employee is found and user can see his profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
+                        "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search an employee by name")]
-        [NUnit.Framework.CategoryAttribute("employeeSearchByFamily")]
-        public void SearchAnEmployeeByName()
+        [NUnit.Framework.DescriptionAttribute("Search employee by name")]
+        [NUnit.Framework.CategoryAttribute("employeeSearchByname")]
+        [NUnit.Framework.TestCaseAttribute("Evghenia Valicova", null)]
+        [NUnit.Framework.TestCaseAttribute("Valicova", null)]
+        [NUnit.Framework.TestCaseAttribute("Evghenia", null)]
+        public void SearchEmployeeByName(string name, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "employeeSearchByFamily"};
+            string[] @__tags = new string[] {
+                    "employeeSearchByname"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+            argumentsOfScenario.Add("name", name);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search employee by name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -128,54 +212,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
- testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "employeename"});
                 table6.AddRow(new string[] {
-                            "Valicova"});
-#line 17
- testRunner.When("User is searching for employee", ((string)(null)), table6, "When ");
+                            string.Format("{0}", name)});
+#line 42
+testRunner.When("User is searching for employee", ((string)(null)), table6, "When ");
 #line hidden
-#line 20
- testRunner.Then("Employee is found and user can see his profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search an employee by firstname")]
-        [NUnit.Framework.CategoryAttribute("employeeSearchByFamily")]
-        public void SearchAnEmployeeByFirstname()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "employeeSearchByFamily"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an employee by firstname", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 24
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 25
- testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                            "employeename"});
-                table7.AddRow(new string[] {
-                            "Evghenia"});
-#line 26
- testRunner.When("User is searching for employee", ((string)(null)), table7, "When ");
-#line hidden
-#line 29
- testRunner.Then("Employee is found and user can see his profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 45
+testRunner.Then("Employee is found and user can see all projects in which this employee is involve" +
+                        "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -190,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "invalidEmployeeSearch"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search an invalid employee", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 33
+#line 57
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -200,17 +249,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 34
+#line 58
 testRunner.Given("Administrator is on employees page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "employeename"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "test123456"});
-#line 35
-testRunner.When("User is searching for employee", ((string)(null)), table8, "When ");
+#line 59
+testRunner.When("User is searching for employee", ((string)(null)), table7, "When ");
 #line hidden
-#line 38
+#line 62
 testRunner.Then("Employee is not found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
