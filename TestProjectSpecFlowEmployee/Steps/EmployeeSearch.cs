@@ -2,6 +2,8 @@
 using TechTalk.SpecFlow.Assist;
 using TestProjectSpecFlowEmployee.PageObjectModel;
 using TestProjectSpecFlowEmployee.Settings;
+using System.Threading;
+
 
 
 
@@ -28,7 +30,7 @@ namespace TestProjectSpecFlowEmployee.Steps
             .GoToEmployeesFromMenu();
         }
 
-
+        
 
         [When(@"User is searching for employee")]
         public void WhenUserIsSearchingForEmployee(Table table)
@@ -52,6 +54,7 @@ namespace TestProjectSpecFlowEmployee.Steps
         [When(@"User ticks PDF file checkbox")]
         public void WhenUserTicksPDFFileCheckbox()
         {
+            Thread.Sleep(2000);
             employeeDetailsPage = new EmployeeDetailsPage();
             employeeDetailsPage.TickPdfFileCheckbox();
         }
@@ -85,6 +88,7 @@ namespace TestProjectSpecFlowEmployee.Steps
 
 
 
+
         [When(@"User clicks Edit button")]
         public void WhenUserClicksEdit()
         {
@@ -103,8 +107,7 @@ namespace TestProjectSpecFlowEmployee.Steps
             employeeDetailsPage.ClickSaveButton();
         }
 
-
-
+       
 
         [Then(@"Employee is found and user can see all projects in which this employee is involved")]
         public void ThenEmployeeIsFound()
@@ -141,10 +144,13 @@ namespace TestProjectSpecFlowEmployee.Steps
         [Then(@"Download Employee Profile Popup (is|is not) present")]
         public void ThenPopupAppeared(string action)
         {
+           
+
             if (employeeDetailsPage.IsDownloadPopupPresent())
             {
                 if (action.Equals("is not"))
                 {
+                    
                     throw new System.Exception("Pop-up present");
                 }
             }
@@ -154,7 +160,11 @@ namespace TestProjectSpecFlowEmployee.Steps
                 {
                     throw new System.Exception("Pop-up not present");
                 }
+                
             }
+
+
+            
         }
     }
 }

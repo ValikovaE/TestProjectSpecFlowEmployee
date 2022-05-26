@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
+using System.Threading;
 
 
 
@@ -37,6 +38,9 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
         private By temporaryUnavailableEmployeeCheckbox = By.XPath("//div//span[contains(.,'Temporary Unavailable')]");
         private By saveButton = By.XPath("//button[@type='submit']");
 
+        //edit firstname
+        private By firstname = By.Name("firstName");
+        private By firstnameText=By.XPath("//div//span[contains(.,'First Name * ')]");
 
 
         public EmployeeDetailsPage ClickOnProfileButton()
@@ -73,6 +77,7 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
         public EmployeeDetailsPage TickTemporaryUnavailableCheckbox()
         {
+            Thread.Sleep(2000);
             WaitAndClick(temporaryUnavailableEmployeeCheckbox);
             return this;
         }
@@ -123,6 +128,7 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
         {
             try
             {
+                Thread.Sleep(2000);
                 return WrappedDriver.FindElement(downloadProfilePopup) == null;
             }
             catch (NoSuchElementException e)
@@ -131,5 +137,18 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
                 return true;
             }
         }
+        public EmployeeDetailsPage SetNewFirstname(string name)
+        {
+            WaitAndSendKeys(firstname, name);
+            
+            return this;
+        }
+        public void CheckEmoloyeeFirstname(string expectedResult)
+        {
+            string actualResult = WrappedWait.Until(ExpectedConditions.ElementIsVisible(firstnameText)).Text;
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
     }
+
 }
