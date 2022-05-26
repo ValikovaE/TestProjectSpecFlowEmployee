@@ -54,7 +54,7 @@ namespace TestProjectSpecFlowEmployee.Steps
         [When(@"User ticks PDF file checkbox")]
         public void WhenUserTicksPDFFileCheckbox()
         {
-            Thread.Sleep(2000);
+            
             employeeDetailsPage = new EmployeeDetailsPage();
             employeeDetailsPage.TickPdfFileCheckbox();
         }
