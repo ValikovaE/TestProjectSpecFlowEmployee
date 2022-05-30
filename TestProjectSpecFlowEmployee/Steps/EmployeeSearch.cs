@@ -54,7 +54,6 @@ namespace TestProjectSpecFlowEmployee.Steps
         [When(@"User ticks PDF file checkbox")]
         public void WhenUserTicksPDFFileCheckbox()
         {
-            
             employeeDetailsPage = new EmployeeDetailsPage();
             employeeDetailsPage.TickPdfFileCheckbox();
         }
@@ -112,6 +111,7 @@ namespace TestProjectSpecFlowEmployee.Steps
         [Then(@"Employee is found and user can see all projects in which this employee is involved")]
         public void ThenEmployeeIsFound()
         {
+            employeePage.OpenEmployeeInfo();
             employeePage.CheckShowAllProjectsButtonText("Show all Projects");
         }
 

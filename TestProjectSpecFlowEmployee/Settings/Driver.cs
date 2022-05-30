@@ -41,6 +41,7 @@ namespace TestProjectSpecFlowEmployee.Settings
         {
             Console.WriteLine("Start browser se executa");
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
             //SetBrowser(new ChromeDriver(options));
             _browser = new ChromeDriver(options);
             _browser.Navigate().GoToUrl(@"https://projectplanappweb-stage.azurewebsites.net/login");

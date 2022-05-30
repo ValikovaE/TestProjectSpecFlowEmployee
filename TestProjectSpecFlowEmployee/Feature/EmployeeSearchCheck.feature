@@ -1,8 +1,6 @@
 ﻿Feature: EmployeeSearchCheck
 By name
 
-
-
 @employeeSearchByName
 Scenario: Search an employee by name
 Given Administrator is on employees page
