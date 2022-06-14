@@ -13,16 +13,6 @@ namespace TestProjectSpecFlowEmployee.Settings
     public class Base
     {
 
-       /* [BeforeFeature]
-        public static void Setup()
-        {
-            Driver.StartBrowser();
-        }
-        [AfterFeature]
-        public static void TearDown()
-        {
-            Driver.StopBrowser();
-        }*/
         [BeforeScenario]
         public static void BeforeScenario()
         {

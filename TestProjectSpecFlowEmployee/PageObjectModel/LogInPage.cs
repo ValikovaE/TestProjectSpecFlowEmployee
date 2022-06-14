@@ -14,8 +14,7 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
     {
 
         private By logInButton = By.CssSelector("div.button");
-        //private By logInButton = By.XPath("//button//span[contains(., 'LogIn')]");
-        //By.XPath("//div//button//span[contains(., 'LogIn')]");
+        
         private By emailField = By.XPath(" //input[@type='email']");
 
         public LogInPage(IWebDriver driver) : base(driver)

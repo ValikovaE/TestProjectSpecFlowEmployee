@@ -11,7 +11,7 @@ using System.Threading;
 namespace TestProjectSpecFlowEmployee.Steps
 {
     [Binding]
-    class EmployeeSearch : Base
+    class EmployeeSearch 
     {
         LogInPage loginPage;
         EmployeeListPage employeePage;

@@ -21,10 +21,6 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
 
 
-
-
-
-
         public EmployeeListPage GoToEmployeesFromMenu()
         {
 

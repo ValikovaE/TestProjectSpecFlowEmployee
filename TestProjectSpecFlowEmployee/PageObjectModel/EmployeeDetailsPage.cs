@@ -13,26 +13,14 @@ namespace TestProjectSpecFlowEmployee.PageObjectModel
 
 
         private By profileButton = By.Id("employeeProfiledownload");
-
-
-
         private By pdfFileCheckbox = By.XPath("//div//mat-dialog-container//span[contains(., 'PDF')]");
         private By wordFileCheckbox = By.XPath("//div//mat-dialog-container//span[contains(., 'Word')]");
         private By downloadButton = By.XPath("//button//span[contains(., 'Download')]");
-
         private By downloadProfilePopup = By.CssSelector("div.cdk-overlay-container:empty");
-
-
-
         private By editButton = By.XPath("//div//span[contains(.,'Edit')]");
         private By editPersonalDataButton = By.XPath("//div//span[contains(.,'Edit Personal Data')]");
-
-
-
         private By temporaryUnavailableEmployeeText = By.XPath("//span[contains(.,'Is temporary unavailable')]");
         private By availableEmployeeText = By.XPath("//div//span[contains(.,'Available')]");
-
-
 
         //edit personal data
         private By temporaryUnavailableEmployeeCheckbox = By.XPath("//div//span[contains(.,'Temporary Unavailable')]");
